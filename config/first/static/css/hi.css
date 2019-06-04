@@ -1,0 +1,10 @@
+.hi{
+    margin-top : 100px;
+}
+
+header.masthead {
+    background-image: url("../img/mi.jpg");
+}
+#mainNav .navbar-nav .nav-item .nav-link {
+    color : peru;
+}

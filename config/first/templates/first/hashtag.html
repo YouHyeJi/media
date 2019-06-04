@@ -1,0 +1,28 @@
+{% extends 'first/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link href="{% static 'css/hi.css' %}" rel="stylesheet">
+<!-- Header -->
+<header class="masthead">
+     <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">New Hashtag</div>
+          <div class="intro-heading text-uppercase">해시태그를 추가하는 페이지입니다.</div>
+          </div>
+        </div>
+      </header>
+      
+  <div class="container">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        {{ error_message }}
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input class="btn btn-dark" type="submit" value="제출하기">
+        </form>
+    </div>
+</div>
+{% endblock %}

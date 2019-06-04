@@ -1,0 +1,42 @@
+{% extends 'first/index.html' %}
+{% load staticfiles %}
+{% block content %}
+<link href="{% static 'css/hi.css' %}" rel="stylesheet">
+<!-- Header -->
+<header class="masthead">
+  <div class="container">
+    <div class="intro-text">
+      <h1>{{ hashtag }}가 있는 게시글 목록</h1>
+        <span class="subheading">해시태그 검색결과 페이지 입니다.</span>
+        </div>
+      </div>
+    </header>
+
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        {% for blog in hashtag.blog_set.all %}
+      <div class="post-preview">
+        <a href="{% url 'detail' blog.id %}">
+          <h2 class="post-title">
+            {{ blog.title }}
+          </h2>
+          <h3 class="post-subtitle">
+            {{ blog.body }}
+          </h3>
+        </a>
+        <p class="post-meta">
+          {{ blog.pub_date }}</p>
+      </div>
+      <hr>
+      {% endfor %}
+      <!-- Pager -->
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
